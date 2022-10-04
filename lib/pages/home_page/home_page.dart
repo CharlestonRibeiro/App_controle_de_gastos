@@ -1,7 +1,6 @@
 import 'package:controle_de_mercado_vesao_local/routes/routes.dart';
 import 'package:flutter/material.dart';
 
-
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
@@ -30,6 +29,11 @@ class HomePage extends StatelessWidget {
                   Navigator.of(context).pushNamed(Routes.recover);
                 },
                 child: const Text('recover_password_page')),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.of(context).pushNamed(Routes.myHome);
+                },
+                child: const Text('myHome')),
           ],
         ),
       ),
