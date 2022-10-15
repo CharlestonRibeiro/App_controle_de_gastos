@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class RecoverPasswordPage extends StatelessWidget {
   const RecoverPasswordPage({super.key});
 
+  static const recover = '/recover';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

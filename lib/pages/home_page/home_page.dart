@@ -1,8 +1,13 @@
-import 'package:controle_de_mercado_vesao_local/routes/routes.dart';
+import 'package:controle_de_mercado_vesao_local/pages/login_page/login_page.dart';
+import 'package:controle_de_mercado_vesao_local/pages/my_home_page/my_home_page.dart';
+import 'package:controle_de_mercado_vesao_local/pages/recover_password_page/recover_password_page.dart';
+import 'package:controle_de_mercado_vesao_local/pages/singUp_page/signUp_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
+
+  static const home = '/';
 
   @override
   Widget build(BuildContext context) {
@@ -16,22 +21,22 @@ class HomePage extends StatelessWidget {
           children: [
             ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed(Routes.login);
+                  Navigator.of(context).pushNamed(LoginPage.login);
                 },
                 child: const Text('login_page')),
             ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed(Routes.signUp);
+                  Navigator.of(context).pushNamed(SignUpPage.signUp);
                 },
                 child: const Text('signUp_page')),
             ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed(Routes.recover);
+                  Navigator.of(context).pushNamed(RecoverPasswordPage.recover);
                 },
                 child: const Text('recover_password_page')),
             ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed(Routes.myHome);
+                  Navigator.of(context).pushNamed(MyHomepage.myHome);
                 },
                 child: const Text('myHome')),
           ],

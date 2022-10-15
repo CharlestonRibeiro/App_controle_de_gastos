@@ -5,6 +5,8 @@ import 'package:intl/intl.dart';
 class MyHomepage extends StatelessWidget {
   const MyHomepage({super.key});
 
+  static const myHome = '/myHome';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

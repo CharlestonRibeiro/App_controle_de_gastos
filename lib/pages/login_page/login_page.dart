@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
+  static const login = '/login';
 
   @override
   Widget build(BuildContext context) {

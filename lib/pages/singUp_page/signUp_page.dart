@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 class SignUpPage extends StatelessWidget {
   const SignUpPage({super.key});
 
+  static const signUp = '/signUp';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
