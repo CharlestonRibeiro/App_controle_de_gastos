@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         LoginPage.login: (_) => const LoginPage(),
         RecoverPasswordPage.recover: (_) => const RecoverPasswordPage(),
         SignUpPage.signUp: (_) => const SignUpPage(),
-        MyHomepage.myHome: (_) => const MyHomepage(),
+        MyHomePage.myHome: (_) => const MyHomePage(),
       },
     );
   }

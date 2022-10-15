@@ -36,7 +36,7 @@ class HomePage extends StatelessWidget {
                 child: const Text('recover_password_page')),
             ElevatedButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed(MyHomepage.myHome);
+                  Navigator.of(context).pushNamed(MyHomePage.myHome);
                 },
                 child: const Text('myHome')),
           ],
