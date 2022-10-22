@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
-  static const primary = Color(0xFFFF941A);
-  static const secondary = Color(0xFF585666);
-  static const grey = Color(0xFF585666);
-  static const delete = Color(0xFFE83F5B);
-  static const heading = Color(0xFF585666);
-  static const body = Color(0xFF706E7A);
-  static const stroke = Color(0xFFE3E3E6);
-  static const shape = Color(0xFFFAFAFC);
-  static const background = Color(0xFFFFFFFF);
-  static const input = Color(0xFFB1B0B8);
+  static const linear = Color(0xFFE4E4E4);
+  static const white = Color(0xFFFEFEFE);
+  static const lightgreen = Color(0xFF0C6D5F);
+  static const orange = Color(0xFFF79C32);
+  static const green = Color(0xFF084237);
+  static const ligthBlue = Color(0xFF42BFED);
+  static const pink = Color(0xFFFB6EAF);
 }
