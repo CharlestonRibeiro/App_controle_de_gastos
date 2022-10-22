@@ -1,4 +1,5 @@
 import 'package:controle_de_mercado_vesao_local/models/transaction.dart';
+import 'package:controle_de_mercado_vesao_local/themes/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -23,7 +24,7 @@ class TransactionList extends StatelessWidget {
                 SizedBox(
                   height: constraints.maxHeight * 0.6,
                   child: Image.asset(
-                    'assets/images/waiting.png',
+                   AppImages.logoHome,
                     fit: BoxFit.cover,
                   ),
                 ),
