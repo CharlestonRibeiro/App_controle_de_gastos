@@ -63,8 +63,7 @@ class LoginPage extends StatelessWidget {
                             hintText: 'Senha',
                             border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(30),
-                                borderSide:
-                                    const BorderSide(color: AppColors.linear))),
+                                )),
                       ),
                       const SizedBox(
                         height: 15,
