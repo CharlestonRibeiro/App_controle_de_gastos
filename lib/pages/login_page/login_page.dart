@@ -1,3 +1,6 @@
+import 'package:controle_de_mercado_vesao_local/themes/app_colors.dart';
+import 'package:controle_de_mercado_vesao_local/themes/app_images.dart';
+import 'package:controle_de_mercado_vesao_local/themes/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
@@ -7,51 +10,152 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Entrar'),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Card(
-          margin: const EdgeInsets.symmetric(horizontal: 16),
-          child: Form(
-            child: ListView(
-                padding: const EdgeInsets.all(16),
-                shrinkWrap: true,
-                children: <Widget>[
-                  TextFormField(
-                      decoration: const InputDecoration(hintText: 'Nome'),
-                      keyboardType: TextInputType.name,
-                      validator: null
-                      ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  TextFormField(
-                    decoration: const InputDecoration(
-                      hintText: 'Senha',
+      backgroundColor:AppColors.lightgreen,
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            Container(
+                width: double.infinity,
+                height: 250,
+                decoration: const BoxDecoration(
+                    color: AppColors.green,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(10),
+                      bottomRight: Radius.circular(10),
+                    )),
+                child: Column(
+                  children: [
+                    Image.asset(
+                      AppImages.piggy,
+                      height: 200,
+                      width: 200,
                     ),
-                    obscureText: true,
-                    autocorrect: false,
-                    validator: null
-                  ),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  const ElevatedButton(
-                      onPressed: null,
-                      child: Text('Entrar')),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  GestureDetector(
-                    onTap: null,
-                    child: const Center(child: Text('Esqueci minha senha')),
-                  )
-                ]),
-          ),
+                    Text("Porkin.io", style: MyTextStyles.titleHome),
+                  ],
+                )),
+            const SizedBox(height: 15,),
+            Padding(
+              padding: const EdgeInsets.only(left: 30, right: 30),
+              child: Form(
+                child: ListView(
+                    padding: const EdgeInsets.all(16),
+                    shrinkWrap: true,
+                    children: <Widget>[
+                      TextFormField(
+                        controller: null,
+                        maxLines: null,
+                        decoration: InputDecoration(
+                            hintText: 'Nome',
+                            
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide:
+                                    const BorderSide(color: AppColors.white))),
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      TextFormField(
+                        controller: null,
+                        maxLines: null,
+                        decoration: InputDecoration(
+                            hintText: 'Senha',
+                            border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(30),
+                                borderSide:
+                                    const BorderSide(color: AppColors.linear))),
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      ElevatedButton(
+                        onPressed: () {},
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all<Color>(AppColors.green),
+                          shape: MaterialStateProperty.all(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(16.0),
+                            ),
+                          ),
+                        ),
+                        child: const Padding(
+                          padding: EdgeInsets.all(10.0),
+                          child: Text(
+                            'ENTRAR',
+                            style: TextStyle(
+                              fontSize: 18,
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      const Divider(),
+      
+                      const SizedBox(
+                        height: 15,
+                      ),
+                      
+                       ElevatedButton(
+                        onPressed: () {},
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all<Color>(AppColors.white),
+                          shape: MaterialStateProperty.all(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(16.0),
+                            ),
+                          ),
+                        ),
+                        child: const Padding(
+                          padding: EdgeInsets.all(10.0),
+                          child: Text(
+                            'ENTRAR COM GOOGLE',
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: AppColors.orange
+                            ),
+                          ),
+                        ),
+                      ),
+      
+      
+                      const SizedBox(
+                        height: 15,
+                      ),
+      
+      
+                       ElevatedButton(
+                        onPressed: () {},
+                        style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all<Color>(AppColors.white),
+                          shape: MaterialStateProperty.all(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(16.0),
+                            ),
+                          ),
+                        ),
+                        child: const Padding(
+                          padding: EdgeInsets.all(10.0),
+                          child: Text(
+                            'CADASTRAR NOVA CONTA',
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: AppColors.orange
+                            ),
+                          ),
+                        ),
+                      ),
+      
+      
+                    ]),
+              ),
+            ),
+          ],
         ),
       ),
     );

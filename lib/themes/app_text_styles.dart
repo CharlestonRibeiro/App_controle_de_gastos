@@ -4,18 +4,16 @@ import 'package:google_fonts/google_fonts.dart';
 
 class MyTextStyles {
   static final titleHome = GoogleFonts.signikaNegative(
-    fontSize: 32,
-    fontWeight: FontWeight.w600,
+    fontSize: 40,
+    fontWeight: FontWeight.w900,
     color: AppColors.orange,
   );
-  static final titleRegular = GoogleFonts.lexendDeca(
+
+  static final subTitleHome = GoogleFonts.signikaNegative(
     fontSize: 20,
-    fontWeight: FontWeight.w400,
-    color: AppColors.white,
+    fontWeight: FontWeight.w500,
+    color: AppColors.orange,
   );
-  static final titleBoldHeading = GoogleFonts.lexendDeca(
-    fontSize: 20,
-    fontWeight: FontWeight.w600,
-    color: AppColors.linear,
-  );
+
+
 }

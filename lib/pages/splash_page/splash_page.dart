@@ -1,5 +1,6 @@
 import 'package:controle_de_mercado_vesao_local/themes/app_colors.dart';
 import 'package:controle_de_mercado_vesao_local/themes/app_images.dart';
+import 'package:controle_de_mercado_vesao_local/themes/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 
@@ -14,11 +15,12 @@ class SplashPage extends StatefulWidget {
 
 class _SplashPageState extends State<SplashPage> {
   @override
+  
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 4)).then((value) {
-      Navigator.of(context)
-          .pushReplacementNamed('login'); //utilizando rota nomeada
+     // Navigator.of(context)
+     //     .pushReplacementNamed(LoginPage.login); //utilizando rota nomeada
     });
   }
 
@@ -28,23 +30,19 @@ class _SplashPageState extends State<SplashPage> {
       backgroundColor: AppColors.green,
       body: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          SizedBox(
-            height: 200,
-            width: 200,
-            child: Image.asset(AppImages.piggy),
+       
+          Image.asset(AppImages.piggy,
+              height: 200,
+              width: 200,
           ),
-          const Text(
+        
+        Text(
             "Porkin.io",
-            style: TextStyle(
-              fontSize: 45,
-              fontWeight: FontWeight.bold,
-              color: Color.fromARGB(108, 50, 121, 28),
-            ),
+            style: MyTextStyles.titleHome
           ),
-          const Text(
-            "Bem-vindo, sempre! :)",
-            style:
-                TextStyle(fontSize: 18, color: Color.fromARGB(255, 68, 67, 67)),
+        Text(
+            "Bem vindo",
+            style:MyTextStyles.subTitleHome,
           ),
         ]),
       ),
