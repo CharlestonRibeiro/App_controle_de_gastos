@@ -1,16 +1,30 @@
-# controle_de_mercado_vesao_local
+# Controle de Gastos
 
-A new Flutter project.
+Aplicação desenvolvida em Flutter para prática de conceitos: 
 
-## Getting Started
+- [x] Flutter.
+- [x] Telas.
+- [x] Divisão de responsabilidade.
+- [x] Rotas.
 
-This project is a starting point for a Flutter application.
+## Telas
+<p align="center">
+<img src="https://github.com/CharlestonRibeiro/App_controle_de_gastos/blob/main/assets/images/06.png" width="300" height="500" />
+<img src="https://github.com/CharlestonRibeiro/App_controle_de_gastos/blob/main/assets/images/02.png" width="300" height="500" />
+</p>
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+<p align="center"> 
+<img src="https://github.com/CharlestonRibeiro/App_controle_de_gastos/blob/main/assets/images/03.png" width="300" height="500" />
+<img src="https://github.com/CharlestonRibeiro/App_controle_de_gastos/blob/main/assets/images/04.png" width="300" height="500" />
+</p>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+<p align="center">
+<img src="https://github.com/CharlestonRibeiro/App_controle_de_gastos/blob/main/assets/images/05.png" width="300" height="500" />
+<img src="https://github.com/CharlestonRibeiro/App_controle_de_gastos/blob/main/assets/images/01.png" width="300" height="500" />
+</p>
+
+## O conteúdo desenvolvido na tela despesas pessoais foi com base no curso: [Aprenda Flutter e Desenvolva Apps Para Android e IOS 2022](https://www.udemy.com/course/curso-flutter/).
+
+
+
