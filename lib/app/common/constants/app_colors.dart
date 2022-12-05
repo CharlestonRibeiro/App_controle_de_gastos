@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppColors {
+  AppColors._();
   static const linear = Color(0xFFE4E4E4);
   static const white = Color(0xFFFEFEFE);
   static const lightgreen = Color(0xFF0C6D5F);

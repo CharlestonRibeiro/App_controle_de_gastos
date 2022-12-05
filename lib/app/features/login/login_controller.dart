@@ -1,4 +1,4 @@
-import 'package:controle_de_mercado_vesao_local/app/controllers/login_state.dart';
+import 'package:controle_de_mercado_vesao_local/app/features/login/login_state.dart';
 import 'package:flutter/material.dart';
 
 class LoginController extends ChangeNotifier {

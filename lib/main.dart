@@ -1,4 +1,4 @@
-import 'package:controle_de_mercado_vesao_local/app/my_app.dart';
+import 'package:controle_de_mercado_vesao_local/my_app.dart';
 import 'package:flutter/material.dart';
 
 

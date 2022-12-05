@@ -1,6 +1,5 @@
-import 'package:controle_de_mercado_vesao_local/app/core/themes/app_colors.dart';
-import 'package:controle_de_mercado_vesao_local/app/core/themes/app_images.dart';
-import 'package:controle_de_mercado_vesao_local/app/core/themes/text_styles/app_text_styles_dark.dart';
+import 'package:controle_de_mercado_vesao_local/app/common/constants/app_colors.dart';
+import 'package:controle_de_mercado_vesao_local/app/common/widgets/custom_logo.dart';
 import 'package:flutter/material.dart';
 
 
@@ -29,15 +28,7 @@ class HeaderLogo extends StatelessWidget {
           mainAxisSize: MainAxisSize
               .min, //faz com que tamanho da column fique tamanho dos filhos
           children: [
-            Image.asset(
-              AppImages.porkin,
-              height: 180,
-              width: 180,
-            ),
-            Text(
-              "Porkin.io",
-              style: AppTextStylesDark.headline3,
-            ),
+            const CustomLogo(),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.02,
             ),

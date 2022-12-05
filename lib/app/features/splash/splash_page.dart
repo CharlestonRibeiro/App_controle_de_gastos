@@ -1,8 +1,7 @@
-import 'package:controle_de_mercado_vesao_local/app/core/themes/app_colors.dart';
-import 'package:controle_de_mercado_vesao_local/app/core/themes/app_images.dart';
-import 'package:controle_de_mercado_vesao_local/app/core/themes/text_styles/app_text_styles_dark.dart';
+import 'package:controle_de_mercado_vesao_local/app/common/constants/app_colors.dart';
+import 'package:controle_de_mercado_vesao_local/app/common/constants/text_styles/app_text_styles_dark.dart';
+import 'package:controle_de_mercado_vesao_local/app/common/widgets/custom_logo.dart';
 import 'package:flutter/material.dart';
-
 
 class SplashPage extends StatefulWidget {
   const SplashPage({Key? key}) : super(key: key);
@@ -33,11 +32,8 @@ class _SplashPageState extends State<SplashPage> {
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset(AppImages.porkin, height: 320),
-              Text(
-                "Porkin.io",
-                style: AppTextStylesDark.headline3,
-              ),
+              const CustomLogo(),
+                       
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.04,
               ),
@@ -51,4 +47,6 @@ class _SplashPageState extends State<SplashPage> {
       ),
     );
   }
+
+ 
 }
