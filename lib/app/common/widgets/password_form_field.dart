@@ -1,4 +1,4 @@
-import 'package:controle_de_mercado_vesao_local/components/custom_form_field.dart';
+import 'package:controle_de_mercado_vesao_local/app/common/widgets/custom_form_field.dart';
 import 'package:flutter/material.dart';
 
 class PasswordFormField extends StatefulWidget {

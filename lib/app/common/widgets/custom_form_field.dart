@@ -1,20 +1,23 @@
-import 'package:controle_de_mercado_vesao_local/app/core/themes/app_colors.dart';
+
+import 'package:controle_de_mercado_vesao_local/app/common/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomFormField extends StatefulWidget {
   final String formFieldText;
+  final String? formFieldHelperText;
   final Widget? formFieldSuffixIcon;
   final bool? formFieldObscureText;
   final TextEditingController? formFieldController;
   final String? Function(String?)? formFieldValidator;
-
+  
   const CustomFormField(
       {super.key,
       required this.formFieldText,
       this.formFieldSuffixIcon,
       this.formFieldObscureText,
       this.formFieldController,
-      this.formFieldValidator});
+      this.formFieldValidator, 
+      this.formFieldHelperText});
 
   @override
   State<CustomFormField> createState() => _CustomFormFieldState();
@@ -24,11 +27,14 @@ class _CustomFormFieldState extends State<CustomFormField> {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+     
       controller: widget.formFieldController,
       validator: widget.formFieldValidator,
       maxLines: 1,
       obscureText: widget.formFieldObscureText ?? false,
       decoration: InputDecoration(
+        helperText: widget.formFieldHelperText, //TODO COLOCAR NAS CAMPOS DEPOIS
+        helperMaxLines: 3,
         hintText: widget.formFieldText,
         suffixIcon: widget.formFieldSuffixIcon,
         errorStyle: const TextStyle(

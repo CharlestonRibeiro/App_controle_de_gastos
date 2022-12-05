@@ -1,4 +1,5 @@
-import 'package:controle_de_mercado_vesao_local/app/core/themes/app_colors.dart';
+
+import 'package:controle_de_mercado_vesao_local/app/common/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 Future<T> errorDialog<T>(
@@ -30,3 +31,5 @@ Future<T> errorDialog<T>(
     ),
   );
 }
+
+//TODO PERGUNTA O QUE É PARA A BIA

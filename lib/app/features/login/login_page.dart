@@ -1,17 +1,16 @@
-import 'package:controle_de_mercado_vesao_local/app/controllers/custom_form_field_validator.dart';
-import 'package:controle_de_mercado_vesao_local/app/controllers/login_controller.dart';
-import 'package:controle_de_mercado_vesao_local/app/controllers/login_state.dart';
-import 'package:controle_de_mercado_vesao_local/app/core/themes/app_colors.dart';
-import 'package:controle_de_mercado_vesao_local/app/core/themes/app_images.dart';
-import 'package:controle_de_mercado_vesao_local/components/custom_flat_button.dart';
-import 'package:controle_de_mercado_vesao_local/components/custom_form_field.dart';
-import 'package:controle_de_mercado_vesao_local/components/custom_outlined_button.dart';
-import 'package:controle_de_mercado_vesao_local/components/error_dialog.dart';
-import 'package:controle_de_mercado_vesao_local/components/header_logo.dart';
-import 'package:controle_de_mercado_vesao_local/components/password_form_field.dart';
-import 'package:controle_de_mercado_vesao_local/pages/account_recovery_page/account_recovery_page.dart';
-import 'package:controle_de_mercado_vesao_local/pages/home_page/home_page.dart';
-import 'package:controle_de_mercado_vesao_local/pages/sing_up_page/sign_up_page.dart';
+import 'package:controle_de_mercado_vesao_local/app/common/constants/app_colors.dart';
+import 'package:controle_de_mercado_vesao_local/app/common/constants/app_images.dart';
+import 'package:controle_de_mercado_vesao_local/app/common/utils/custom_form_field_validator.dart';
+import 'package:controle_de_mercado_vesao_local/app/common/widgets/header_logo.dart';
+import 'package:controle_de_mercado_vesao_local/app/features/login/login_controller.dart';
+import 'package:controle_de_mercado_vesao_local/app/features/login/login_state.dart';
+import 'package:controle_de_mercado_vesao_local/app/features/sign_up/sign_up_page.dart';
+import 'package:controle_de_mercado_vesao_local/app/common/widgets/custom_flat_button.dart';
+import 'package:controle_de_mercado_vesao_local/app/common/widgets/custom_form_field.dart';
+import 'package:controle_de_mercado_vesao_local/app/common/widgets/error_dialog.dart';
+import 'package:controle_de_mercado_vesao_local/app/common/widgets/password_form_field.dart';
+import 'package:controle_de_mercado_vesao_local/app/features/account_recovery/account_recovery_page.dart';
+import 'package:controle_de_mercado_vesao_local/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
@@ -80,21 +79,25 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(height: MediaQuery.of(context).size.height * 0.04),
                     CustomFlatButton(
                       customButtonText: 'ENTRAR',
+                      customColor:  AppColors.primaryDark,
+                      customWidth: 0.8, 
+                      customHeight: 0.06,
+                      customFontSize: 25,
                       customButtonOnPressed: () {
                         final valid = _formKey.currentState != null &&
                             _formKey.currentState!.validate();
                         if (valid) {
                           _controller.attemptLogin();
                         }
-                      },
+                      }, 
                     ),
                     SizedBox(
                       height: (MediaQuery.of(context).size.height * 0.02),
                     ),
                     GestureDetector(
                       onTap: () {
-                        Navigator.of(context).pushNamed(
-                            AccountRecoveryPage.recover);
+                        Navigator.of(context)
+                            .pushNamed(AccountRecoveryPage.recover);
                       },
                       child: const Center(
                           child: Text(
@@ -102,47 +105,45 @@ class _LoginPageState extends State<LoginPage> {
                         style: TextStyle(fontSize: 15),
                       )),
                     ),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.04),
-                    const CustomOutlinedButton(
-                        customImage: AppImages.google,
-                        customText: 'ENTRAR COM GOOGLE'),
+                 
                     SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                    const Padding(
-                        padding: EdgeInsets.only(left: 20, right: 40)),
-                    const CustomOutlinedButton(
-                        customImage: AppImages.microsoft,
-                        customText: 'ENTRAR COM MICROSOFT'),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                    SizedBox(
-                      height: MediaQuery.of(context).size.height * 0.06,
-                      child: OutlinedButton(
-                        style: ButtonStyle(
-                          side: MaterialStateProperty.all(
-                            const BorderSide(color: AppColors.orange),
-                          ),
-                          shape: MaterialStateProperty.all(
-                            RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(16),
-                            ),
-                          ),
-                        ),
-                        onPressed: () {
-                          Navigator.of(context)
-                              .pushNamed(SignUpPage.routeSignUpPage);
-                        },
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: const [
-                            Text(
-                              "CADASTRAR NOVA CONTA",
-                              style: TextStyle(
-                                  fontSize: 18, color: AppColors.orange),
-                              textAlign: TextAlign.center,
-                            ),
-                          ],
-                        ),
+                    
+                    CustomFlatButton(
+                      customButtonText: 'ENTRAR COM GOOGLE', 
+                      customButtonOnPressed: (){}, 
+                      customColor: AppColors.textMediumGray, 
+                      customWidth: 0.9,
+                      customHeight: 0.06, 
+                      customFontSize: 20,
+                      customImage: AppImages.google,
                       ),
+                  
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+                  
+                    CustomFlatButton(
+                      customButtonText: 'ENTRAR COM MICROSOFT', 
+                      customButtonOnPressed: (){}, 
+                      customColor: AppColors.textMediumGray, 
+                      customWidth: 0.9,
+                      customHeight: 0.06, 
+                      customFontSize: 20,
+                      customImage: AppImages.microsoft,
+                      ),
+                     
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.02), 
+
+                    CustomFlatButton(
+                      customButtonText: 'CADASTRAR NOVA CONTA',
+                      customColor:  AppColors.textMediumGray,
+                      customWidth: 0.9, 
+                      customHeight: 0.06,
+                      customFontSize: 20,
+                      customButtonOnPressed: () {
+                       Navigator.of(context)
+                              .pushNamed(SignUpPage.routeSignUpPage);
+                      },
                     ),
+                  
                     SizedBox(height: MediaQuery.of(context).size.height * 0.04),
                   ],
                 ),

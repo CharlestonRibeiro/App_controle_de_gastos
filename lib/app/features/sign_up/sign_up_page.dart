@@ -1,12 +1,14 @@
-import 'package:controle_de_mercado_vesao_local/app/controllers/custom_form_field_validator.dart';
-import 'package:controle_de_mercado_vesao_local/app/controllers/sign_up_controller.dart';
-import 'package:controle_de_mercado_vesao_local/app/controllers/signup_state_controller.dart';
-import 'package:controle_de_mercado_vesao_local/app/core/themes/app_colors.dart';
-import 'package:controle_de_mercado_vesao_local/components/custom_form_field.dart';
-import 'package:controle_de_mercado_vesao_local/components/error_dialog.dart';
-import 'package:controle_de_mercado_vesao_local/components/header_logo.dart';
-import 'package:controle_de_mercado_vesao_local/components/password_form_field.dart';
-import 'package:controle_de_mercado_vesao_local/pages/home_page/home_page.dart';
+import 'package:controle_de_mercado_vesao_local/app/common/constants/app_colors.dart';
+import 'package:controle_de_mercado_vesao_local/app/common/utils/custom_form_field_validator.dart';
+import 'package:controle_de_mercado_vesao_local/app/common/widgets/custom_show_modal_bottom_sheet.dart';
+import 'package:controle_de_mercado_vesao_local/app/common/widgets/header_logo.dart';
+import 'package:controle_de_mercado_vesao_local/app/features/sign_up/sign_up_controller.dart';
+import 'package:controle_de_mercado_vesao_local/app/common/widgets/custom_form_field.dart';
+import 'package:controle_de_mercado_vesao_local/app/features/sign_up/sign_up_state.dart';
+import 'package:controle_de_mercado_vesao_local/app/common/widgets/custom_flat_button.dart';
+import 'package:controle_de_mercado_vesao_local/app/common/widgets/error_dialog.dart';
+import 'package:controle_de_mercado_vesao_local/app/common/widgets/password_form_field.dart';
+import 'package:controle_de_mercado_vesao_local/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -139,25 +141,40 @@ class _SignUpPageState extends State<SignUpPage> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.06,
               width: MediaQuery.of(context).size.width * 0.6,
+              
+              child: CustomFlatButton(
+                    customButtonText: 'Saida' ,
+                    customColor:  AppColors.primaryDark,
+                    customWidth: 0.8, 
+                    customHeight: 0.06,
+                    customFontSize: 25,
+                    customButtonOnPressed: (){},
+                    
+              ), 
+
+              /*
               child: ElevatedButton(
                 onPressed: () {
                   final valid = _formKey.currentState != null &&
                       _formKey.currentState!.validate();
                   if (valid) {
                     _controller.doSignUp();
-                  } else {}
+                  } else {
+                    customShowModalBottomSheet(context);
+                  }
                 },
                 style: ButtonStyle(
                   shape: MaterialStatePropertyAll(RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16))),
                   backgroundColor:
                       const MaterialStatePropertyAll(AppColors.green),
-                ),
+                ),                
                 child: const Text(
                   ' ENTRAR',
                   style: TextStyle(fontSize: 25, color: AppColors.linear),
                 ),
               ),
+              */
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.04,
