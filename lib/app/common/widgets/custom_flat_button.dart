@@ -7,6 +7,8 @@ class CustomFlatButton extends StatefulWidget {
   final String customButtonText;
   final Function() customButtonOnPressed;
   final Color customColor;
+  final Color? customColorImage;
+  final Color customColorText;
   final double customWidth;
   final double customHeight;
   final double customFontSize;
@@ -19,8 +21,10 @@ class CustomFlatButton extends StatefulWidget {
     required this.customColor,
     required this.customWidth,
     required this.customHeight,
-    required this.customFontSize, 
-    this.customImage,
+    required this.customFontSize,   
+    required this.customColorText, 
+    this.customImage,    
+    this.customColorImage, 
   }) : super(key: key);
 
   @override
@@ -49,7 +53,7 @@ class _CustomFlatButtonState extends State<CustomFlatButton> {
                  Image.asset(
                     widget.customImage!,
                     height: 24,
-                    color: AppColors.orange,
+                    color: widget.customColorImage,
                     alignment: Alignment.center,
                   ),
                   const Padding(
@@ -69,7 +73,8 @@ class _CustomFlatButtonState extends State<CustomFlatButton> {
               Text(
                 widget.customButtonText,
                 style: TextStyle(
-                    fontSize: widget.customFontSize, color: AppColors.linear),      
+                    fontSize: widget.customFontSize, 
+                    color: widget.customColorText),      
               ),
             ],
           )
@@ -80,38 +85,3 @@ class _CustomFlatButtonState extends State<CustomFlatButton> {
   }
 }
 
-
-/*
-child: customImage != null
-            ? Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Image.asset(
-                    customImage!,
-                    height: 24,
-                    color: AppColors.orange,
-                    alignment: Alignment.center,
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 20, right: 20),
-                  ),
-                  Text(
-                    customText,
-                    style:
-                        const TextStyle(fontSize: 18, color: AppColors.orange),
-                    textAlign: TextAlign.center,
-                  )
-                ],
-              )
-            : Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    customText,
-                    style:
-                        const TextStyle(fontSize: 18, color: AppColors.orange),
-                    textAlign: TextAlign.center,
-                  )
-                ],
-              ),
-*/

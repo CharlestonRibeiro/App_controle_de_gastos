@@ -1,13 +1,14 @@
 import 'package:controle_de_mercado_vesao_local/app/common/constants/app_colors.dart';
 import 'package:controle_de_mercado_vesao_local/app/common/utils/custom_form_field_validator.dart';
-import 'package:controle_de_mercado_vesao_local/app/common/widgets/custom_show_modal_bottom_sheet.dart';
 import 'package:controle_de_mercado_vesao_local/app/common/widgets/header_logo.dart';
+import 'package:controle_de_mercado_vesao_local/app/features/login/login_page.dart';
 import 'package:controle_de_mercado_vesao_local/app/features/sign_up/sign_up_controller.dart';
 import 'package:controle_de_mercado_vesao_local/app/common/widgets/custom_form_field.dart';
 import 'package:controle_de_mercado_vesao_local/app/features/sign_up/sign_up_state.dart';
 import 'package:controle_de_mercado_vesao_local/app/common/widgets/custom_flat_button.dart';
 import 'package:controle_de_mercado_vesao_local/app/common/widgets/error_dialog.dart';
 import 'package:controle_de_mercado_vesao_local/app/common/widgets/password_form_field.dart';
+import 'package:controle_de_mercado_vesao_local/app/services/mock_auth_service.dart';
 import 'package:controle_de_mercado_vesao_local/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -22,12 +23,17 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   final GlobalKey<FormState> _formKey = GlobalKey();
+  final _nameController = TextEditingController();
+  final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-  final _controller = SignUpController();
+  final _controller = SignUpController(MockAuthService());
 
   @override
   void dispose() {
+    _nameController.dispose();
+    _emailController.dispose();
     _passwordController.dispose();
+    _controller.dispose();
     super.dispose();
   }
 
@@ -48,7 +54,10 @@ class _SignUpPageState extends State<SignUpPage> {
           Navigator.of(context).pushReplacementNamed(HomePage.home);
         }
         if (_controller.state is SignUpErrorState) {
-          errorDialog(context, "Erro ao cadastrar", HomePage.home);
+          final errorMessage = _controller.state as SignUpErrorState;
+          
+          errorDialog(context, errorMessage.toString(), LoginPage.routeLoginPage);
+
         }
       },
     );
@@ -91,32 +100,36 @@ class _SignUpPageState extends State<SignUpPage> {
                       const SizedBox(
                         height: 25,
                       ),
-                      const CustomFormField(
-                          formFieldValidator:
-                              CustomFormFieldValidator.validateName,
-                          formFieldText: 'Nome completo'),
+                      CustomFormField(
+                        formFieldValidator:
+                            CustomFormFieldValidator.validateName,
+                        formFieldText: 'Nome completo',
+                        formFieldController: _nameController,
+                      ),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.02,
                       ),
-                      const CustomFormField(
-                          formFieldValidator:
-                              CustomFormFieldValidator.validateEmail,
-                          formFieldText: 'E-mail'),
+                      CustomFormField(
+                        formFieldValidator:
+                            CustomFormFieldValidator.validateEmail,
+                        formFieldText: 'E-mail',
+                        formFieldController: _emailController,
+                      ),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.02,
                       ),
                       PasswordFormField(
-                        passwordFormField: 'Senha',
-                        passwordValidator:
+                        passwordFormFieldText: 'Senha',
+                        passwordFormFieldValidator:
                             CustomFormFieldValidator.validatePassword,
-                        passwordController: _passwordController,
+                        passwordFormFieldController: _passwordController,
                       ),
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.02,
                       ),
                       PasswordFormField(
-                        passwordFormField: 'Confirme sua senha',
-                        passwordValidator: (value) =>
+                        passwordFormFieldText: 'Confirme sua senha',
+                        passwordFormFieldValidator: (value) =>
                             CustomFormFieldValidator.confirmValidatePassword(
                                 _passwordController.text, value),
                       ),
@@ -141,40 +154,29 @@ class _SignUpPageState extends State<SignUpPage> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.06,
               width: MediaQuery.of(context).size.width * 0.6,
-              
               child: CustomFlatButton(
-                    customButtonText: 'Saida' ,
-                    customColor:  AppColors.primaryDark,
-                    customWidth: 0.8, 
-                    customHeight: 0.06,
-                    customFontSize: 25,
-                    customButtonOnPressed: (){},
-                    
-              ), 
-
-              /*
-              child: ElevatedButton(
-                onPressed: () {
+                customButtonText: 'ENTRAR',
+                customColor: AppColors.primaryDark,
+                customWidth: 0.8,
+                customHeight: 0.06,
+                customFontSize: 25,
+                customColorText: AppColors.white,
+                customButtonOnPressed: () {
                   final valid = _formKey.currentState != null &&
                       _formKey.currentState!.validate();
+
                   if (valid) {
-                    _controller.doSignUp();
+                    _controller.doSignUp(
+                      name: _nameController.text,
+                      email: _emailController.text,
+                      password: _passwordController.text,
+                    );
                   } else {
-                    customShowModalBottomSheet(context);
+                    //customShowModalBottomSheet(context);
+                  //  errorDialog(context, errorMessage.toString(), LoginPage.routeLoginPage);
                   }
                 },
-                style: ButtonStyle(
-                  shape: MaterialStatePropertyAll(RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(16))),
-                  backgroundColor:
-                      const MaterialStatePropertyAll(AppColors.green),
-                ),                
-                child: const Text(
-                  ' ENTRAR',
-                  style: TextStyle(fontSize: 25, color: AppColors.linear),
-                ),
               ),
-              */
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.04,

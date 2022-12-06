@@ -2,15 +2,21 @@ import 'package:controle_de_mercado_vesao_local/app/common/widgets/custom_form_f
 import 'package:flutter/material.dart';
 
 class PasswordFormField extends StatefulWidget {
-  final String passwordFormField;
-  final TextEditingController? passwordController;
-  final String? Function(String?)? passwordValidator;
 
+  final String passwordFormFieldText;
+  final TextEditingController? passwordFormFieldController;
+  final String? Function(String?)? passwordFormFieldValidator;
+  final TextInputType? passwordFormFieldKeyboardType;
+  final String? passwordFormFieldHelperText;
+  
   const PasswordFormField(
       {Key? key,
-      required this.passwordFormField,
-      this.passwordController,
-      this.passwordValidator})
+       required this.passwordFormFieldText,
+       this.passwordFormFieldController,
+       this.passwordFormFieldValidator, 
+       this.passwordFormFieldKeyboardType, 
+       this.passwordFormFieldHelperText,
+       })
       : super(key: key);
 
   @override
@@ -23,8 +29,15 @@ class _PasswordFormFieldState extends State<PasswordFormField> {
   @override
   Widget build(BuildContext context) {
     return CustomFormField(
-      formFieldText: widget.passwordFormField,
+      formFieldText: widget.passwordFormFieldText,
       formFieldObscureText: _isHidden,
+      formFieldController: widget.passwordFormFieldController,
+      formFieldKeyboardType: widget.passwordFormFieldKeyboardType,
+      formFieldValidator: widget.passwordFormFieldValidator,
+      formFieldHelperText: widget.passwordFormFieldHelperText,
+     
+
+      
       formFieldSuffixIcon: InkWell(
         borderRadius: BorderRadius.circular(20.0),
         onTap: () {

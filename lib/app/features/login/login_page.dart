@@ -71,9 +71,9 @@ class _LoginPageState extends State<LoginPage> {
                             CustomFormFieldValidator.validateEmail),
                     SizedBox(
                         height: (MediaQuery.of(context).size.height) * 0.04),
-                    const PasswordFormField(
-                      passwordFormField: 'SENHA',
-                      passwordValidator:
+                   const PasswordFormField(
+                      passwordFormFieldText: 'SENHA',
+                      passwordFormFieldValidator:
                           CustomFormFieldValidator.validatePassword,
                     ),
                     SizedBox(height: MediaQuery.of(context).size.height * 0.04),
@@ -83,6 +83,7 @@ class _LoginPageState extends State<LoginPage> {
                       customWidth: 0.8, 
                       customHeight: 0.06,
                       customFontSize: 25,
+                      customColorText: AppColors.white,
                       customButtonOnPressed: () {
                         final valid = _formKey.currentState != null &&
                             _formKey.currentState!.validate();
@@ -115,7 +116,9 @@ class _LoginPageState extends State<LoginPage> {
                       customWidth: 0.9,
                       customHeight: 0.06, 
                       customFontSize: 20,
-                      customImage: AppImages.google,
+                      customImage: AppImages.google, 
+                      customColorText: AppColors.white,
+                      customColorImage: AppColors.orange,
                       ),
                   
                     SizedBox(height: MediaQuery.of(context).size.height * 0.02),
@@ -127,6 +130,8 @@ class _LoginPageState extends State<LoginPage> {
                       customWidth: 0.9,
                       customHeight: 0.06, 
                       customFontSize: 20,
+                      customColorText: AppColors.white,
+                      customColorImage: AppColors.orange,
                       customImage: AppImages.microsoft,
                       ),
                      
@@ -138,6 +143,7 @@ class _LoginPageState extends State<LoginPage> {
                       customWidth: 0.9, 
                       customHeight: 0.06,
                       customFontSize: 20,
+                      customColorText: AppColors.white,
                       customButtonOnPressed: () {
                        Navigator.of(context)
                               .pushNamed(SignUpPage.routeSignUpPage);

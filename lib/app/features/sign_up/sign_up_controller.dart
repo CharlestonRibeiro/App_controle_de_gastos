@@ -1,24 +1,35 @@
 import 'package:controle_de_mercado_vesao_local/app/features/sign_up/sign_up_state.dart';
+import 'package:controle_de_mercado_vesao_local/app/services/auth_service.dart';
 import 'package:flutter/material.dart';
 
 class SignUpController extends ChangeNotifier {
-  SignUpState state = SignUpInitialState();
+  final AuthService _service;
+  SignUpController(this._service);
+  late SignUpState _state = SignUpInitialState();
 
-  void updateState(SignUpState newState) {
-    state = newState;
+  SignUpState get state => _state;
+
+  void _updateState(SignUpState newState) {
+    _state = newState;
     notifyListeners();
   }
 
-  Future<bool> doSignUp() async {
-    updateState(SignUpLoadingState());
+  Future<void> doSignUp({
+    required String name, 
+    required String email, 
+    required String password
+    }) async {
+    _updateState(SignUpLoadingState());
     try {
-      await Future.delayed(const Duration(seconds: 2));
+      _service.signUp(
+        name: name,
+        email: email,
+        password: password,
+      );
       throw Exception('Erro ao cadastrar');
-      // updateState(SignUpSucessState());
-      // return true;
+      //_updateState(SignUpSucessState());
     } catch (e) {
-      updateState(SignUpErrorState());
-      return false;
+      _updateState(SignUpErrorState(e.toString()));
     }
   }
 }

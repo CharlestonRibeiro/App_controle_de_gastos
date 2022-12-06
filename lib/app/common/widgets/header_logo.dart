@@ -10,7 +10,7 @@ class HeaderLogo extends StatelessWidget {
     return Container(
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.only(
-        top: 16,
+        top: 16, //TODO VALORES FIXOS
         bottom: 16,
       ),
       decoration: const BoxDecoration(
