@@ -29,10 +29,10 @@ class SignUpController extends ChangeNotifier {
         email: email,
         password: password,
       );
-      throw Exception('Erro ao cadastrar');
+  //    throw Exception('Erro ao cadastrar');
 
-   //   log('usuario criado com sucesso');
-  //    _updateState(SignUpSucessState());
+      log('usuario criado com sucesso');
+      _updateState(SignUpSucessState());
 
     } catch (e) {
       _updateState(SignUpErrorState(e.toString()));

@@ -61,11 +61,13 @@ class _SignUpPageState extends State<SignUpPage> {
            
           final error = _controller.state as SignUpErrorState;
 
+          //TODO ESCOLHER QUAL USAR errorDialog OU customShowModalBottomSheet
+
           Navigator.of(context);
           errorDialog(context, error.message, LoginPage.routeLoginPage);
 
-          //Navigator.of(context);
-          //customShowModalBottomSheet(context,);
+         // Navigator.of(context);
+        //customShowModalBottomSheet(context, error.message, SignUpPage.routeSignUpPage);
         }
       },
     );

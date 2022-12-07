@@ -15,12 +15,14 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   @override
   // TODO: SPRINT 3: IMPLEMENTAR INICIO DA NAVEGAÇÃO DO APP NA SPLASH-SCREEN
+  // TODO: COMPARAR ESSE METODO USANDO ABAIXO E O DO KAIO NA AULA 21 
   // void initState() {
   //   super.initState();
   //   Future.delayed(const Duration(seconds: 4)).then((value) {
   //     Navigator.of(context).pushReplacementNamed(LoginPage.login);
   //   });
   // }
+
 
   @override
   Widget build(BuildContext context) {
