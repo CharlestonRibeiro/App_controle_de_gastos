@@ -1,5 +1,8 @@
+import 'dart:developer';
+
 import 'package:controle_de_mercado_vesao_local/app/common/constants/app_colors.dart';
 import 'package:controle_de_mercado_vesao_local/app/common/utils/custom_form_field_validator.dart';
+import 'package:controle_de_mercado_vesao_local/app/common/widgets/custom_show_modal_bottom_sheet.dart';
 import 'package:controle_de_mercado_vesao_local/app/common/widgets/header_logo.dart';
 import 'package:controle_de_mercado_vesao_local/app/features/login/login_page.dart';
 import 'package:controle_de_mercado_vesao_local/app/features/sign_up/sign_up_controller.dart';
@@ -51,13 +54,18 @@ class _SignUpPageState extends State<SignUpPage> {
           );
         }
         if (_controller.state is SignUpSucessState) {
+          Navigator.of(context); 
           Navigator.of(context).pushReplacementNamed(HomePage.home);
         }
         if (_controller.state is SignUpErrorState) {
-          final errorMessage = _controller.state as SignUpErrorState;
-          
-          errorDialog(context, errorMessage.toString(), LoginPage.routeLoginPage);
+           
+          final error = _controller.state as SignUpErrorState;
 
+          Navigator.of(context);
+          errorDialog(context, error.message, LoginPage.routeLoginPage);
+
+          //Navigator.of(context);
+          //customShowModalBottomSheet(context,);
         }
       },
     );
@@ -172,8 +180,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       password: _passwordController.text,
                     );
                   } else {
-                    //customShowModalBottomSheet(context);
-                  //  errorDialog(context, errorMessage.toString(), LoginPage.routeLoginPage);
+                    log('ERROR ao logan');
                   }
                 },
               ),

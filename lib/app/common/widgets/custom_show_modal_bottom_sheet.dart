@@ -30,7 +30,7 @@ Future<void> customShowModalBottomSheet(BuildContext context) {
                       vertical: 16.0,
                       horizontal: 32.0,
                     ),
-                    child: ElevatedButton(
+                    child: ElevatedButton( //TODO TROCA PELO customFlatButton
                       child: const Text('Tentar novamente'),
                       onPressed: () => Navigator.pop(context),
                     ))
