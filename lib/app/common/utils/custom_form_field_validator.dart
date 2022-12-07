@@ -30,7 +30,7 @@ class CustomFormFieldValidator {
       return "Campo obrigatório";
     }
     if (value != null && !passwordValidate.hasMatch(value)) {
-      return "Dados inválidos. Digite uma senha válida de no mínimo 8 caracteres.";
+      return "Dados inválidos.";
     }
     return null;
   }
@@ -40,23 +40,22 @@ class CustomFormFieldValidator {
       return "Campo obrigatório";
     }
     if (first != second) {
-      return "Dados inválidos. A confirmação é diferente da senha digitada.";
+      return "Dados inválidos.";
     }
     return null;
   }
 
   static String? validateNull(String? value) {
-    if (value == null || value.trim().isEmpty) {
+    if (value != null && value.isEmpty) {
       return "Campo obrigatório.";
     }
     return null;
   }
 
   static String? validateTitle(String? value) {
-    if (value == null || value.trim().isEmpty) {
+    if (value != null && value.isEmpty) {
       return "Campo obrigatório.";
-    }
-    if (value.trim().length < 3) {
+    }else if (value!.trim().length < 3) {
       return 'Favor identificar o título com pelo menos 3 caracteres.';
     }
     return null;

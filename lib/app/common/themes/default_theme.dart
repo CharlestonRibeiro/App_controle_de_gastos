@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 
 final defaultTheme = ThemeData(
-  primarySwatch: Colors.blue,
+    primarySwatch: Colors.blue,
 );
 
-//TODO: Trabalhar themeData da aplicação
+
+
+
+//TODO: Trabalhar themeData da aplicaçãolib/my_app.dart

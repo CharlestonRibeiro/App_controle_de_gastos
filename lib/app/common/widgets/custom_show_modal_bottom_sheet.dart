@@ -1,7 +1,8 @@
 import 'package:controle_de_mercado_vesao_local/app/common/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
-Future<void> customShowModalBottomSheet(BuildContext context) {
+Future<void> customShowModalBottomSheet(
+    BuildContext context, String customErrorMessage, String route) {
   return showModalBottomSheet<void>(
       context: context,
       shape: const RoundedRectangleBorder(
@@ -21,15 +22,21 @@ Future<void> customShowModalBottomSheet(BuildContext context) {
               mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
               children: [
-                const Text('ERROR'),
+                Text(
+                  textAlign: TextAlign.center,
+                  customErrorMessage,
+                  style: const TextStyle(
+                      fontSize: 16, color: AppColors.backgroundDark),
+                ),
                 Padding(
                     padding: const EdgeInsets.symmetric(
                       vertical: 16.0,
                       horizontal: 32.0,
                     ),
                     child: ElevatedButton(
-                      child: const Text('Tetar novamente'),
-                      onPressed: () => Navigator.pop(context),
+                      //TODO TROCA PELO customFlatButton
+                      child: const Text('Tentar novamente'),
+                      onPressed: () => Navigator.of(context).pushReplacementNamed(route),
                     ))
               ],
             ),
