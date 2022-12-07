@@ -10,6 +10,7 @@ import 'package:controle_de_mercado_vesao_local/app/common/widgets/custom_form_f
 import 'package:controle_de_mercado_vesao_local/app/common/widgets/error_dialog.dart';
 import 'package:controle_de_mercado_vesao_local/app/common/widgets/password_form_field.dart';
 import 'package:controle_de_mercado_vesao_local/app/features/account_recovery/account_recovery_page.dart';
+import 'package:controle_de_mercado_vesao_local/app/services/mock_auth_service.dart';
 import 'package:controle_de_mercado_vesao_local/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -25,14 +26,18 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final GlobalKey<FormState> _formKey = GlobalKey();
 
-  final _controller = LoginController();
+  final _controller = LoginController(MockAuthService());
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
 
   @override
   void initState() {
     super.initState();
+    _emailController.dispose();
+    _passwordController.dispose();
     _controller.addListener(
       () {
-        if (_controller.loginState is LoginLoadingState) {
+        if (_controller.state is LoginLoadingState) {
           showDialog(
             context: context,
             builder: (context) => const Center(
@@ -40,11 +45,16 @@ class _LoginPageState extends State<LoginPage> {
             ),
           );
         }
-        if (_controller.loginState is LoginSuccessState) {
+        if (_controller.state is LoginSuccessState) {
           Navigator.of(context).pushReplacementNamed(HomePage.home);
         }
-        if (_controller.loginState is LoginErrorState) {
+        if (_controller.state is LoginErrorState) {
+           //TODO ESCOLHER QUAL USAR errorDialog OU customShowModalBottomSheet
           errorDialog(context, "Erro ao logar", LoginPage.routeLoginPage);
+        
+         //Navigator.of(context);
+        //customShowModalBottomSheet(context, error.message, SignUpPage.routeSignUpPage);
+        
         }
       },
     );
@@ -65,14 +75,16 @@ class _LoginPageState extends State<LoginPage> {
                 padding: const EdgeInsets.only(left: 20, right: 20),
                 child: Column(
                   children: <Widget>[
-                    const CustomFormField(
+                    CustomFormField(
                         formFieldText: "E-MAIL",
+                        formFieldController: _emailController,
                         formFieldValidator:
                             CustomFormFieldValidator.validateEmail),
                     SizedBox(
                         height: (MediaQuery.of(context).size.height) * 0.04),
-                   const PasswordFormField(
+                   PasswordFormField(
                       passwordFormFieldText: 'SENHA',
+                      passwordFormFieldController: _passwordController,
                       passwordFormFieldValidator:
                           CustomFormFieldValidator.validatePassword,
                     ),
@@ -88,7 +100,11 @@ class _LoginPageState extends State<LoginPage> {
                         final valid = _formKey.currentState != null &&
                             _formKey.currentState!.validate();
                         if (valid) {
-                          _controller.attemptLogin();
+                          _controller.doLogin(
+                            email: _emailController.text,
+                            password: _passwordController.text, 
+                                               
+                          );
                         }
                       }, 
                     ),

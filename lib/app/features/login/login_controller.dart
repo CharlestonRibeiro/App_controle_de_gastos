@@ -1,24 +1,43 @@
+import 'dart:developer';
+
 import 'package:controle_de_mercado_vesao_local/app/features/login/login_state.dart';
+import 'package:controle_de_mercado_vesao_local/app/services/auth_service.dart';
 import 'package:flutter/material.dart';
 
 class LoginController extends ChangeNotifier {
-  LoginState loginState = LoginInitialState();
+  final AuthService _service;
 
-  void updateState(LoginState newState) {
-    loginState = newState;
+  LoginController(this._service);
+
+  LoginState _loginState = LoginInitialState();
+
+  LoginState get state =>  _loginState;
+
+
+  void _updateState(LoginState newState) {
+    _loginState = newState;
     notifyListeners();
   }
 
-  Future<bool> attemptLogin() async {
-    updateState(LoginLoadingState());
-    try {
-      await Future.delayed(const Duration(seconds: 2));
 
-      updateState(LoginSuccessState());
-      return true;
+  Future<void> doLogin({
+      required String email,
+      required String password
+      }) async {
+    _updateState(LoginLoadingState());
+    try {
+      await _service.signUp(
+        email: email,
+        password: password,
+      );
+  //    throw Exception('Erro ao cadastrar');
+
+      log('usuario logado com sucesso');
+      _updateState(LoginSuccessState());
+
     } catch (e) {
-      updateState(LoginErrorState());
-      return false;
+      _updateState(LoginErrorState(e.toString()));
     }
   }
 }
+

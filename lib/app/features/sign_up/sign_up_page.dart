@@ -64,7 +64,7 @@ class _SignUpPageState extends State<SignUpPage> {
           //TODO ESCOLHER QUAL USAR errorDialog OU customShowModalBottomSheet
 
           Navigator.of(context);
-          errorDialog(context, error.message, LoginPage.routeLoginPage);
+          errorDialog(context, error.message, SignUpPage.routeSignUpPage);
 
          // Navigator.of(context);
         //customShowModalBottomSheet(context, error.message, SignUpPage.routeSignUpPage);
